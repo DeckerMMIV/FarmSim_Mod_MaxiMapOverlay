@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        Decker_MMIV
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay:Next page"      />
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Seeded"               />
+        <text name="growing2"           text="Growing"              />
+        <text name="growing3"           text="Growing"              />
+        <text name="growing4"           text="Growing"              />
+        <text name="growing5"           text="Growing (potatoes)"   />
+        <text name="readyToPrepare1"    text="Defoliation ready"    />
+        <text name="readyToPrepare2"    text="Defoliation ready"    />
+        <text name="readyToPrepare3"    text="Defoliation ready"    />
+        <text name="readyToHarvest1"    text="Ready to harvest"     />        
+        <text name="readyToHarvest2"    text="Ready to harvest"     />        
+        <text name="readyToHarvest3"    text="Ready to harvest"     />        
+        <text name="withered1"          text="Withered"             />        
+        <text name="cutted1"            text="Harvest completed"    />        
+
+        <!-- Editing -->
+        <text name="titleEdit"      text="Edit - %s"        />
+        
+        <text name="spinRed"        text="  Red: %.3f (%d)" />
+        <text name="spinGreen"      text="Green: %.3f (%d)" />
+        <text name="spinBlue"       text=" Blue: %.3f (%d)" />
+        <text name="spinAlpha"      text="Alpha: %.3f (%d)" />
+
+        <text name="toggleVisible"  text="Toggle show/hide" />
+        
+    </texts>
+</l10n>
