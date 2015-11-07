@@ -3,13 +3,12 @@
     <author>Decker_MMIV</author>
     <contributors></contributors>
     
+    <version>0.4.1</version>
+
     <title>
         <en>MaxiMap Overlay</en>
         <de>MaxiMap Overlay</de>
     </title>
-    
-    <version>0.4.0-BETA</version>
-    
 
     <description>
         <en>
@@ -18,23 +17,13 @@
 
 Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
         </en>
-        <de>
-<![CDATA[
-
-
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
-        </de>
     </description>
 
     <iconFilename>store_MaxiMapOverlay.dds</iconFilename>
     <multiplayer supported="true"/>
 
     <l10n filenamePrefix="modDesc_l10n" /> <!-- Load the corresponding modDesc_l10n_<language>.XML file, or revert to 'en'/'de'. -->
-<!--    
-    <l10n>
-        <text name="MAXIMAPOVERLAY_TOGGLE"><en>MaxiMap Overlay:Next page</en></text>
-    </l10n>
--->
+
     <inputBindings>
         <input name="MAXIMAPOVERLAY_TOGGLE"  category="ONFOOT VEHICLE" key1="KEY_0" key2=""                 button=""         device=""                                      mouse="" />
     </inputBindings>

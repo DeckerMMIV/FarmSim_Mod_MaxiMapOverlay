@@ -52,30 +52,6 @@ loadMap = function(self, name)
         },
     }
 
-    --self.growthGrowingColors = {
-    --    {0, 0.45, 1.00, 1}, 
-    --    {0, 0.31, 0.86, 1}, 
-    --    {0, 0.20, 0.70, 1}, 
-    --    {0, 0.10, 0.60, 1},
-    --    {0, 0.10, 0.50, 1},
-    --}
-    --self.growthReadyToHarvestColors = {
-    --    {0, 0.9, 0.1, 1}, 
-    --    {0, 0.7, 0.1, 1}, 
-    --    {0, 0.5, 0.2, 1},
-    --}
-    --self.growthReadyToPrepareColors = {
-    --    {0.5, 0.9, 1.0, 1},
-    --    {0.3, 1.0, 0.9, 1},
-    --    {0.1, 1.0, 0.8, 1},
-    --}
-    --self.growthWitheredColors = {
-    --    {0.7, 0, 0.1, 1},
-    --}
-    --self.growthCuttedColors = {
-    --    {0.1, 0.1, 0.1, 1},
-    --}
-
     --    
     FruitUtil.fruitIndexToDesc[FruitUtil.FRUITTYPE_GRASS].mod_HideFruitOnMap = true
     --FruitUtil.fruitIndexToDesc[FruitUtil.FRUITTYPE_DRYGRASS].mod_HideFruitOnMap = true
@@ -116,15 +92,16 @@ loadMap = function(self, name)
     setFruitGroup(FruitUtil.FRUITTYPE_LUZERNE     , 10) -- Alfalfa
     
     --
-    if ModsSettings == nil then
-        print("Optional 'ModsSettings'-mod not found. Unable to use player customized settings for the 'MaxiMapOverlay'-mod.")
-    else
+    if  ModsSettings ~= nil
+    and ModsSettings.isVersion ~= nil 
+    and ModsSettings.isVersion("0.1.0", "MaxiMapOverlay")
+    then
         local modName = "MaxiMapOverlay"
         self.overlayRefreshIntervalSecs = ModsSettings.getIntLocal(modName, "mapOverlay", "refreshInterval", self.overlayRefreshIntervalSecs)
     
         --
         function getCustomColor(modName, keyName, attrName, defaultColorArray)
-            local defColor = ("%.2f %.2f %.2f"):format(defaultColorArray[1], defaultColorArray[2], defaultColorArray[3])
+            local defColor = ("%.3f %.3f %.3f"):format(defaultColorArray[1], defaultColorArray[2], defaultColorArray[3])
             defColor = ModsSettings.getStringLocal(modName, keyName, attrName, defColor);
             defColor = Utils.getVectorNFromString(defColor, 3)
             if defColor ~= nil then
@@ -152,27 +129,8 @@ loadMap = function(self, name)
                 growthDesc[i] = getCustomColor(modName, keyName, attrName, growthDesc[i])
             end
         end
-        
-        --for i=1,#self.growthWitheredColors do
-        --    local attrName = ("color%d"):format(i)
-        --    self.growthWitheredColors[i] = getCustomColor(modName, "Growth_withered", attrName, self.growthWitheredColors[i])
-        --end
-        --for i=1,#self.growthCuttedColors do
-        --    local attrName = ("color%d"):format(i)
-        --    self.growthCuttedColors[i] = getCustomColor(modName, "Growth_cutted",   attrName, self.growthCuttedColors[i])
-        --end
-        --for i=1,#self.growthReadyToPrepareColors do
-        --    local attrName = ("color%d"):format(i)
-        --    self.growthReadyToPrepareColors[i] = getCustomColor(modName, "Growth_readyToPrepare", attrName, self.growthReadyToPrepareColors[i])
-        --end
-        --for i=1,#self.growthReadyToHarvestColors do
-        --    local attrName = ("color%d"):format(i)
-        --    self.growthReadyToHarvestColors[i] = getCustomColor(modName, "Growth_readyToHarvest", attrName, self.growthReadyToHarvestColors[i])
-        --end
-        --for i=1,#self.growthGrowingColors do
-        --    local attrName = ("color%d"):format(i)
-        --    self.growthGrowingColors[i] = getCustomColor(modName, "Growth_growing", attrName, self.growthGrowingColors[i])
-        --end
+    else
+        print("Optional 'ModsSettings'-mod not found or not required version. Unable to use player customized settings for the 'MaxiMapOverlay'-mod.")
     end
 end,
 
@@ -199,11 +157,6 @@ mouseEvent = function(self, posX, posY, isDown, isUp, button)
             end
         end
     end
-    
-    --if isUp then
-    --    self.mouseButtonsDown = nil
-    --    self.selectedPane = nil
-    --end
 end,
 
 keyEvent = function(self, unicode, sym, modifier, isDown)
@@ -229,8 +182,6 @@ refreshMapOverlayFruit = function(self, updateLegend)
     end
 
     for fruitType,fruit in pairs(g_currentMission.fruits) do
-    --for fruitType=#g_currentMission.fruits,1,-1 do
-    --    local fruit = g_currentMission.fruits[fruitType]
         if fruit ~= nil and fruit.id ~= nil and fruit.id ~= 0 then
             local fruitDesc = FruitUtil.fruitIndexToDesc[fruitType]
             if fruitDesc ~= nil and fruitDesc.fruitMapColor ~= nil then
@@ -245,6 +196,40 @@ refreshMapOverlayFruit = function(self, updateLegend)
                     --if true then
                     --    element.title = ("%s (%d:%d)"):format(element.title, fruitType, fruit.id)
                     --end
+                    
+                    if ModsSettings ~= nil and ModsSettings.setStringLocal ~= nil and ModsSettings.setBoolLocal ~= nil then
+                        local fruitName = fruitDesc.name
+                        element.setColor = function(self,color)
+                            fruitDesc.fruitMapColor = color
+                            self.color = color
+                            --
+                            local modName = "MaxiMapOverlay"
+                            local keyName = "Fruit_" .. fruitName
+                            local attrName = "color"
+                            local attrValue = ("%.3f %.3f %.3f"):format(color[1],color[2],color[3])
+                            ModsSettings.setStringLocal(modName, keyName, attrName, attrValue)
+                        end
+                        element.setVisibility = function(self,visible)
+                            fruitDesc.mod_HideFruitOnMap = visible
+                            self.hidden = visible
+                            --
+                            local modName = "MaxiMapOverlay"
+                            local keyName = "Fruit_" .. fruitName
+                            local attrName = "hideOnMap"
+                            local attrValue = (visible == true) -- In case ´visible´ is not of type bool.
+                            ModsSettings.setBoolLocal(modName, keyName, attrName, attrValue)
+                        end
+                    else
+                        element.setColor = function(self,color)
+                            fruitDesc.fruitMapColor = color
+                            self.color = color
+                        end
+                        element.setVisibility = function(self,visible)
+                            fruitDesc.mod_HideFruitOnMap = visible
+                            self.hidden = visible
+                        end
+                    end
+                    
                     table.insert(self.legendFruits, element);
                 end
 
@@ -279,21 +264,7 @@ refreshMapOverlayGrowth = function(self, updateLegend)
     resetFoliageStateOverlay(self.foliageStateOverlay)
 
     if updateLegend then
-        --self.legendFruits = {
-        --    { groupNum=1, title="Seeded",             color=self.growthGrowingColors[1] },
-        --    { groupNum=1, title="Growing",            color=self.growthGrowingColors[2] },
-        --    { groupNum=1, title="Growing",            color=self.growthGrowingColors[3] },
-        --    { groupNum=1, title="Growing",            color=self.growthGrowingColors[4] },
-        --    { groupNum=1, title="Growing (potatoes)", color=self.growthGrowingColors[5] },
-        --    { groupNum=2, title="Defoliation ready",  color=self.growthReadyToPrepareColors[1] },
-        --    { groupNum=2, title="Defoliation ready",  color=self.growthReadyToPrepareColors[2] },
-        --    { groupNum=2, title="Defoliation ready",  color=self.growthReadyToPrepareColors[3] },
-        --    { groupNum=3, title="Ready to harvest",   color=self.growthReadyToHarvestColors[1] },
-        --    { groupNum=3, title="Ready to harvest",   color=self.growthReadyToHarvestColors[2] },
-        --    { groupNum=3, title="Ready to harvest",   color=self.growthReadyToHarvestColors[3] },
-        --    { groupNum=4, title="Withered",           color=self.growthWitheredColors[1]    },
-        --    { groupNum=5, title="Harvest completed",  color=self.growthCuttedColors[1]      },
-        --}
+--[[    
         self.legendFruits = {
             { groupNum=1, title="Seeded",             color=self.growthColors["growing"]        [1], name="growing"       , index=1 },
             { groupNum=1, title="Growing",            color=self.growthColors["growing"]        [2], name="growing"       , index=2 },
@@ -309,11 +280,53 @@ refreshMapOverlayGrowth = function(self, updateLegend)
             { groupNum=4, title="Withered",           color=self.growthColors["withered"]       [1], name="withered"      , index=1 },
             { groupNum=5, title="Harvest completed",  color=self.growthColors["cutted"]         [1], name="cutted"        , index=1 },
         }
+--]]        
+        local sequence = {
+            "growing",
+            "readyToPrepare",
+            "readyToHarvest",
+            "withered",
+            "cutted",
+        }
+        self.legendFruits = {}
+        for i=1,#sequence do
+            local growthType = sequence[i]
+            for j=1,#self.growthColors[growthType] do
+                local element = { 
+                    groupNum    = i,
+                    title       = g_i18n:getText(("%s%d"):format(growthType,j)),
+                    color       = MaxiMapOverlay.growthColors[growthType][j],
+                    name        = growthType,
+                    index       = j,
+                }
+                
+                local jj = j
+                if ModsSettings ~= nil and ModsSettings.setStringLocal ~= nil then
+                    element.setColor = function(self,color)
+                        MaxiMapOverlay.growthColors[growthType][jj] = color
+                        self.color = color
+                        --
+                        local modName = "MaxiMapOverlay"
+                        local keyName = "Growth_" .. growthType
+                        local attrName = ("color%d"):format(jj)
+                        local attrValue = ("%.3f %.3f %.3f"):format(color[1],color[2],color[3])
+                        ModsSettings.setStringLocal(modName, keyName, attrName, attrValue)
+                    end
+                else
+                    element.setColor = function(self,color)
+                        MaxiMapMod.growthColors[growthType][jj] = color
+                        self.color = color
+                    end
+                end
+                element.setVisibility = function(self,visible) end
+                
+                table.insert(self.legendFruits, element);
+            end
+        end
+        
     end
     
     for fruitType,fruit in pairs(g_currentMission.fruits) do
-    --for fruitType=#g_currentMission.fruits,1,-1 do
-    --  local fruit = g_currentMission.fruits[fruitType]
       if fruit ~= nil then
         local foliageId = fruit.id
         local fruitDesc = FruitUtil.fruitIndexToDesc[fruitType]
@@ -348,6 +361,9 @@ refreshMapOverlayGrowth = function(self, updateLegend)
             
             local function getColor(growthType, idx)
                 local growthDesc = self.growthColors[growthType]
+                if growthDesc == nil then
+                    return {1,1,1,1}
+                end
                 return growthDesc[Utils.clamp(idx, 1, #growthDesc)]
             end
             
@@ -491,12 +507,14 @@ end,
 setRGB = function(self,r,g,b)
     if self.selectedElement > 0 then
         local color = self.legendFruits[self.selectedElement].color
-        if r ~= nil then color[1] = r; end
-        if g ~= nil then color[2] = g; end
-        if b ~= nil then color[3] = b; end
-        self.legendFruits[self.selectedElement].color[1] = Utils.clamp(color[1], 0, 1)
-        self.legendFruits[self.selectedElement].color[2] = Utils.clamp(color[2], 0, 1)
-        self.legendFruits[self.selectedElement].color[3] = Utils.clamp(color[3], 0, 1)
+        if r ~= nil then color[1] = Utils.clamp(r, 0, 1); end
+        if g ~= nil then color[2] = Utils.clamp(g, 0, 1); end
+        if b ~= nil then color[3] = Utils.clamp(b, 0, 1); end
+        --self.legendFruits[self.selectedElement].color[1] = Utils.clamp(color[1], 0, 1)
+        --self.legendFruits[self.selectedElement].color[2] = Utils.clamp(color[2], 0, 1)
+        --self.legendFruits[self.selectedElement].color[3] = Utils.clamp(color[3], 0, 1)
+        
+        self.legendFruits[self.selectedElement]:setColor(color)
 
         self:setSpinRGB()
     end
@@ -506,11 +524,17 @@ offsetRGB = function(self,r,g,b)
     if self.selectedElement > 0 then
         local color = self.legendFruits[self.selectedElement].color
         local function chg(current, offset)
-            return Utils.clamp(((255*current) + offset)/255, 0, 1)
+            return Utils.clamp(math.floor((255*current) + offset)/255, 0, 1)
         end
-        self.legendFruits[self.selectedElement].color[1] = chg(color[1], r)
-        self.legendFruits[self.selectedElement].color[2] = chg(color[2], g)
-        self.legendFruits[self.selectedElement].color[3] = chg(color[3], b)
+        --self.legendFruits[self.selectedElement].color[1] = chg(color[1], r)
+        --self.legendFruits[self.selectedElement].color[2] = chg(color[2], g)
+        --self.legendFruits[self.selectedElement].color[3] = chg(color[3], b)
+
+        self.legendFruits[self.selectedElement]:setColor({
+            chg(color[1], r),
+            chg(color[2], g),
+            chg(color[3], b)
+        } )
         
         self:setSpinRGB()
     end
@@ -551,8 +575,11 @@ toggleShowHide = function(self)
         if self.overlayPage == 1 then
             local fruitType = self.legendFruits[self.selectedElement].fruitType
             local fruitDesc = FruitUtil.fruitIndexToDesc[fruitType]
-            fruitDesc.mod_HideFruitOnMap = not fruitDesc.mod_HideFruitOnMap
-            self.legendFruits[self.selectedElement].hidden = fruitDesc.mod_HideFruitOnMap
+            --fruitDesc.mod_HideFruitOnMap = not fruitDesc.mod_HideFruitOnMap
+            --self.legendFruits[self.selectedElement].hidden = fruitDesc.mod_HideFruitOnMap
+            
+            self.legendFruits[self.selectedElement]:setVisibility(not fruitDesc.mod_HideFruitOnMap)
+            
             self:refreshMapOverlay(self.overlayPage, false)
             self.pageIsDirty = true
         end
@@ -618,10 +645,10 @@ buildPage = function(self, pageNum, enableEditable)
     
     yy = yy-spinHeight
     local pageNames = {
-        "Fruit types",
-        "Growth",
+        g_i18n:getText("pageFruitTypes"),
+        g_i18n:getText("pageGrowth"),
     }
-    add(self:createSpinLabel_v2("pageSelector", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, spinBackgroundColor, pageNames[pageNum], spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
+    add(self:createLabel_v2("pageSelector", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, spinBackgroundColor, pageNames[pageNum], spinFontSize, spinForegroundColor, nil, nil, true))
 
     local xB = x + panelPaddingHoriz
     local xR = xB + cropColorBoxPaddingHoriz
@@ -670,20 +697,22 @@ buildPage = function(self, pageNum, enableEditable)
         local spinHeight = 0.02
         local spinFontSize = 0.018
 
+        local labelEdit = g_i18n:getText("titleEdit"):format(self.legendFruits[self.selectedElement].title)
+        
         yy = yy - spinHeight * 1.2
-        add(self:createLabel_v2("selectedElement", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,cropRowHeight}, panelBackgroundColor, "Edit - "..self.legendFruits[self.selectedElement].title, cropFontSize, cropForegroundColor, nil, RenderText.ALIGN_CENTER, true))
+        add(self:createLabel_v2("selectedElement", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,cropRowHeight}, panelBackgroundColor, labelEdit, cropFontSize, cropForegroundColor, nil, RenderText.ALIGN_CENTER, true))
         
         yy = yy - spinHeight * 1.05
-        self.spinRed   = add(self:createSpinLabel_v2("red",   {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {1,0.9,0.9,1}, "Red: 100% (255)",   spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
+        self.spinRed   = add(self:createSpinLabel_v2("red",   {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {1,0.9,0.9,1}, g_i18n:getText("spinRed"),   spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
         yy = yy - spinHeight * 1.05
-        self.spinGreen = add(self:createSpinLabel_v2("green", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {0.9,1,0.9,1}, "Green: 100% (255)", spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
+        self.spinGreen = add(self:createSpinLabel_v2("green", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {0.9,1,0.9,1}, g_i18n:getText("spinGreen"), spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
         yy = yy - spinHeight * 1.05
-        self.spinBlue  = add(self:createSpinLabel_v2("blue",  {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {0.9,0.9,1,1}, "Blue: 100% (255)",  spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
+        self.spinBlue  = add(self:createSpinLabel_v2("blue",  {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {0.9,0.9,1,1}, g_i18n:getText("spinBlue"),  spinFontSize, spinForegroundColor, spinForegroundColor, {1,1,1,1}))
         
         if pageNum == 1 then
             yy = yy - spinHeight * 1.05
             onClick(
-                add(self:createLabel_v2("showHide", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {0.9,0.9,0.9,1}, "Toggle show/hide", cropFontSize, cropForegroundColor, nil, RenderText.ALIGN_CENTER, false)),
+                add(self:createLabel_v2("showHide", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,spinHeight}, {0.9,0.9,0.9,1}, g_i18n:getText("toggleVisible"), cropFontSize, cropForegroundColor, nil, RenderText.ALIGN_CENTER, false)),
                 function() self:toggleShowHide() end
             )
         end
@@ -829,10 +858,6 @@ createSpinLabel_v2 = function(self, paneName, xywh, backColor, text, fontSize, f
             self._paneText:setText(text)
         end,
         inBox = function(self, posX,posY)
-            --return (xL <= posX and posX <= xL+wL
-            --    and yL <= posY and posY <= yL+hL)
-            --    or (xR <= posX and posX <= xR+wR
-            --    and yR <= posY and posY <= yR+hR)
             return (x <= posX and posX <= x+w
                 and y <= posY and posY <= y+h)
         end,

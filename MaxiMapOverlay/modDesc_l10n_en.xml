@@ -12,6 +12,10 @@
     <texts>
         <!-- InputBindings - Controls -->
         <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay:Next page"      />
+
+        <!-- Pages -->
+        <text name="pageFruitTypes"     text="Fruit types"    />
+        <text name="pageGrowth"         text="Growth"         />
         
         <!-- Growth states -->
         <text name="growing1"           text="Seeded"               />
@@ -29,14 +33,14 @@
         <text name="cutted1"            text="Harvest completed"    />        
 
         <!-- Editing -->
-        <text name="titleEdit"      text="Edit - %s"        />
-        
-        <text name="spinRed"        text="  Red: %.3f (%d)" />
-        <text name="spinGreen"      text="Green: %.3f (%d)" />
-        <text name="spinBlue"       text=" Blue: %.3f (%d)" />
-        <text name="spinAlpha"      text="Alpha: %.3f (%d)" />
-
-        <text name="toggleVisible"  text="Toggle show/hide" />
+        <text name="titleEdit"          text="Edit - %s"        />
+            
+        <text name="spinRed"            text="  Red: %.3f (%d)" />
+        <text name="spinGreen"          text="Green: %.3f (%d)" />
+        <text name="spinBlue"           text=" Blue: %.3f (%d)" />
+        <text name="spinAlpha"          text="Alpha: %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Toggle show/hide" />
         
     </texts>
 </l10n>
