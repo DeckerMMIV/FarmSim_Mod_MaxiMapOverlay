@@ -14,8 +14,11 @@
         <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay:Next page"      />
 
         <!-- Pages -->
+        <text name="pageIntro"          text="Intro"          />
         <text name="pageFruitTypes"     text="Fruit types"    />
         <text name="pageGrowth"         text="Growth"         />
+        
+        <text name="nextPageKey"        text="Use key '%s' to switch page" />
         
         <!-- Growth states -->
         <text name="growing1"           text="Seeded"               />
@@ -41,6 +44,11 @@
         <text name="spinAlpha"          text="Alpha: %.3f (%d)" />
     
         <text name="toggleVisible"      text="Toggle show/hide" />
+        
+        <text name="missingModsSettingsMod" 
+              text="NOTE! The optional 'ModsSettings' mod was not found or not of the required version.
+So your changes to the crop/growth colors and visibility will NOT be saved."
+        />
         
     </texts>
 </l10n>
