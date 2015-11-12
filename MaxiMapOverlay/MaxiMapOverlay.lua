@@ -28,28 +28,28 @@ loadMap = function(self, name)
     --
     self.growthColors = {
         ["growing"] = {
-            {0, 0.45, 1.00, 1}, 
-            {0, 0.31, 0.86, 1}, 
-            {0, 0.20, 0.70, 1}, 
-            {0, 0.10, 0.60, 1},
-            {0, 0.10, 0.50, 1},
-        },
+            {0.00; 0.45; 1.00; 1}; 
+            {0.00; 0.31; 0.86; 1}; 
+            {0.00; 0.20; 0.70; 1}; 
+            {0.00; 0.10; 0.60; 1};
+            {0.00; 0.10; 0.50; 1};
+        };
         ["readyToHarvest"] = {
-            {0, 0.9, 0.1, 1}, 
-            {0, 0.7, 0.1, 1}, 
-            {0, 0.5, 0.2, 1},
-        },
+            {0.00; 0.90; 0.10; 1}; 
+            {0.00; 0.70; 0.10; 1}; 
+            {0.00; 0.50; 0.20; 1};
+        };
         ["readyToPrepare"] = {
-            {0.5, 0.9, 1.0, 1},
-            {0.3, 1.0, 0.9, 1},
-            {0.1, 1.0, 0.8, 1},
-        },
+            {0.50; 0.90; 1.00; 1};
+            {0.30; 1.00; 0.90; 1};
+            {0.10; 1.00; 0.80; 1};
+        };
         ["cutted"] = {
-            {0.1, 0.1, 0.1, 1},
-        },
+            {0.10; 0.10; 0.10; 1};
+        };
         ["withered"] = {
-            {0.7, 0, 0.1, 1},
-        },
+            {0.70; 0.00; 0.10; 1};
+        };
     }
 
     --    
@@ -495,6 +495,8 @@ setSpinRGB = function(self)
         if colorBox ~= nil then
             colorBox:setColor( { color[1],color[2],color[3],1 } )
         end
+        
+        self:refreshMapOverlay(self.overlayPage, false)
     end
 end,
 
@@ -659,7 +661,7 @@ buildPage = function(self, pageNum, enableEditable)
         --
         if self.isMissingModsSettingsMod then
             yy = yy - spinHeight * 1.1
-            add(self:createLabel_v2("warning", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,cropRowHeight}, panelBackgroundColor, g_i18n:getText("missingModsSettingsMod"), cropFontSize * 0.9, cropForegroundColor, RenderText.ALIGN_RIGHT, false, nil, nil, true))
+            add(self:createLabel_v2("warning", {x+panelPaddingHoriz,yy, w-panelPaddingHoriz*2,cropRowHeight}, nil, g_i18n:getText("missingModsSettingsMod"), cropFontSize * 0.9, cropForegroundColor, RenderText.ALIGN_LEFT, false, nil, nil, true))
         end
     end
     
