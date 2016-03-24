@@ -11,6 +11,7 @@ MaxiMapOverlay = {
 
 version = (modItem and modItem.version) and modItem.version or "?.?.?",
 modDir = g_currentModDirectory,
+initialized = false,
 
 loadMap = function(self, name)
     --
@@ -52,7 +53,9 @@ loadMap = function(self, name)
         };
     }
 
-    --    
+    --
+    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    --
     FruitUtil.fruitIndexToDesc[FruitUtil.FRUITTYPE_GRASS].mod_HideFruitOnMap = true
     --FruitUtil.fruitIndexToDesc[FruitUtil.FRUITTYPE_DRYGRASS].mod_HideFruitOnMap = true
 
@@ -66,6 +69,9 @@ loadMap = function(self, name)
         end
     end
     
+    --
+    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    --
     setFruitGroup(FruitUtil.FRUITTYPE_WHEAT       , 1)
     setFruitGroup(FruitUtil.FRUITTYPE_BARLEY      , 1)
     setFruitGroup(FruitUtil.FRUITTYPE_OAT         , 1)
@@ -73,23 +79,37 @@ loadMap = function(self, name)
     setFruitGroup(FruitUtil.FRUITTYPE_DINKEL      , 1) -- Spelt
     setFruitGroup(FruitUtil.FRUITTYPE_TRITICALE   , 1)
 
+    --
+    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    --
     setFruitGroup(FruitUtil.FRUITTYPE_RAPE        , 2)
     setFruitGroup(FruitUtil.FRUITTYPE_OSR         , 2)
     setFruitGroup(FruitUtil.FRUITTYPE_SORGHUM     , 2)
     setFruitGroup(FruitUtil.FRUITTYPE_HOPS        , 2)
 
+    --
+    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    --
     setFruitGroup(FruitUtil.FRUITTYPE_MAIZE       , 3)
     setFruitGroup(FruitUtil.FRUITTYPE_SUNFLOWER   , 3)
 
+    --
+    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    --
     setFruitGroup(FruitUtil.FRUITTYPE_POTATO      , 4)
     setFruitGroup(FruitUtil.FRUITTYPE_SUGARBEET   , 4)
     setFruitGroup(FruitUtil.FRUITTYPE_ONION       , 4)
     setFruitGroup(FruitUtil.FRUITTYPE_CARROT      , 4)
 
+    --
+    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    --
     setFruitGroup(FruitUtil.FRUITTYPE_GRASS       , 10)
     setFruitGroup(FruitUtil.FRUITTYPE_DRYGRASS    , 10) -- "Hay"
     setFruitGroup(FruitUtil.FRUITTYPE_KLEE        , 10) -- Clover
     setFruitGroup(FruitUtil.FRUITTYPE_LUZERNE     , 10) -- Alfalfa
+    setFruitGroup(FruitUtil.FRUITTYPE_CLOVER      , 10) -- Klee
+    setFruitGroup(FruitUtil.FRUITTYPE_ALFALFA     , 10) -- Luzerne
     
     --
     if  ModsSettings ~= nil
@@ -130,8 +150,16 @@ loadMap = function(self, name)
             end
         end
     else
-        print("Optional 'ModsSettings'-mod not found or not required version. Unable to use player customized settings for the 'MaxiMapOverlay'-mod.")
+        print("")
+        print("NOTE: Optional 'ModsSettings'-mod not found or not required version. Unable to use player customized settings for the 'MaxiMapOverlay'-mod.")
+        print("")
         self.isMissingModsSettingsMod = true
+    end
+
+    --
+    if not self.initialized then
+        IngameMap.draw = Utils.appendedFunction(IngameMap.draw, MaxiMapOverlay.ingameMapDraw)
+        self.initialized = true
     end
 end,
 
@@ -415,7 +443,10 @@ update = function(self, dt)
 end,
 
 draw = function(self)
-    if g_currentMission.ingameMap.isFullSize and g_currentMission.ingameMap.isVisible then
+    if  g_currentMission.ingameMap.isFullSize
+    and g_currentMission.ingameMap.isVisible 
+    and g_currentMission.ingameMap.resizeDir == 0
+    then
         if self.pageIsDirty or self.isEditable ~= g_currentMission.controlPlayer then
             self:buildPage(self.overlayPage, g_currentMission.controlPlayer)
             InputBinding.setShowMouseCursor(self.isEditable);
@@ -427,18 +458,15 @@ draw = function(self)
     end
 end,
 
-drawLater = function(origSelf)
-    MaxiMapOverlay.orig_draw(origSelf)
-    --
+ingameMapDraw = function(self)
     if MaxiMapOverlay.overlayReadyState == 2 and g_gui.currentGui == nil then
-        local ingameMap = g_currentMission.ingameMap
-        if ingameMap.isVisible then
-            setOverlayUVs(MaxiMapOverlay.foliageStateOverlay, unpack(ingameMap.mapUVs));
+        if self.isVisible then
+            setOverlayUVs(MaxiMapOverlay.foliageStateOverlay, unpack(self.mapUVs));
             renderOverlay(MaxiMapOverlay.foliageStateOverlay
-                ,ingameMap.mapPosX
-                ,ingameMap.mapPosY
-                ,ingameMap.mapWidth
-                ,ingameMap.mapHeight
+                ,self.mapPosX
+                ,self.mapPosY
+                ,self.mapWidth
+                ,self.mapHeight
             )
         end
     end
@@ -541,7 +569,8 @@ buildPage = function(self, pageNum, enableEditable)
     
     local panelBackgroundColor = {1,1,1,0.5}
     local panelPaddingVerti = 0.008
-    local panelPaddingHoriz = 0.008 -- TODO: Aspect Ratio
+    --local panelPaddingHoriz = 0.008 -- TODO: Aspect Ratio
+    local panelPaddingHoriz = panelPaddingVerti / g_screenAspectRatio
     
     local titleBackgroundColor = {0,0,0,1}
     local titleForegroundColor = {1,1,1,1}
@@ -555,17 +584,19 @@ buildPage = function(self, pageNum, enableEditable)
 
     local cropRowHeight = 0.02
     local cropRightIndent = panelPaddingHoriz
-    local cropFontSize = cropRowHeight * 0.8  --0.015
+    local cropFontSize = cropRowHeight * 0.8
     local cropForegroundColor = {0,0,0,1}
-    local cropColorBoxHeight = cropRowHeight * 0.8  --cropRowHeight * 0.8
-    local cropColorBoxWidth = cropColorBoxHeight -- TODO: Aspect Ratio
+    local cropColorBoxHeight = cropRowHeight * 0.8
+    --local cropColorBoxWidth = cropColorBoxHeight -- TODO: Aspect Ratio
+    local cropColorBoxWidth = cropColorBoxHeight / g_screenAspectRatio
     local cropColorBoxPaddingVerti = cropColorBoxHeight * 0.06
-    local cropColorBoxPaddingHoriz = cropColorBoxWidth * 0.06 -- TODO: Aspect Ratio
+    local cropColorBoxPaddingHoriz = cropColorBoxWidth * (0.06 / g_screenAspectRatio)
     
     local h = 0.80
     local y = (1.0 - 0.1) - h
     local x = g_currentMission.ingameMap.mapPosX + g_currentMission.ingameMap.mapWidth
-    local w = (1.0 - x) - 0.05 -- TODO: Aspect Ratio
+    --local w = (1.0 - x) - 0.05 -- TODO: Aspect Ratio
+    local w = getTextWidth(titleFontSize, "MM MaxiMap Overlay mod MM")
     
     local yy = (y+h)-titleHeight
     add(self:createLabel_v2(    "title", {x,yy, w,titleHeight}, titleBackgroundColor, "MaxiMap Overlay mod", titleFontSize, titleForegroundColor, nil, true))
@@ -839,8 +870,8 @@ end,
 
 -- Need to render the overlay _after_ the actual in-game PDA map,
 -- so using "painter's algorithm"... well, if that can be said about 'code'.
-MaxiMapOverlay.orig_draw = FSBaseMission.draw;
-FSBaseMission.draw  = MaxiMapOverlay.drawLater;
+--MaxiMapOverlay.orig_draw = FSBaseMission.draw;
+--FSBaseMission.draw  = MaxiMapOverlay.drawLater;
 
 --
 addModEventListener(MaxiMapOverlay);
