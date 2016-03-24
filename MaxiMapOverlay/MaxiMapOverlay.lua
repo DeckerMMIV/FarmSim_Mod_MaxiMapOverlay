@@ -16,7 +16,7 @@ initialized = false,
 loadMap = function(self, name)
     --
     self.foliageStateOverlay = createFoliageStateOverlay("maxiMapOverlay", 512, 512);
-    self.overlayRefreshIntervalSecs = 10
+    self.overlayRefreshIntervalSecs = 15
     self.overlayPage = 0 -- 0=off
     self.currentPanes = {}
     self.legendFruits = {}
@@ -26,6 +26,8 @@ loadMap = function(self, name)
     self.pdaBeepSound = createSample("pdaBeepSample")
     loadSample(self.pdaBeepSound, Utils.getFilename("pdaBeep.wav", self.modDir), false)
     
+    --
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     self.growthColors = {
         ["growing"] = {
@@ -54,10 +56,9 @@ loadMap = function(self, name)
     }
 
     --
-    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     FruitUtil.fruitIndexToDesc[FruitUtil.FRUITTYPE_GRASS].mod_HideFruitOnMap = true
-    --FruitUtil.fruitIndexToDesc[FruitUtil.FRUITTYPE_DRYGRASS].mod_HideFruitOnMap = true
 
     --
     local function setFruitGroup(fruitType, fruitGroupNum)
@@ -70,7 +71,7 @@ loadMap = function(self, name)
     end
     
     --
-    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     setFruitGroup(FruitUtil.FRUITTYPE_WHEAT       , 1)
     setFruitGroup(FruitUtil.FRUITTYPE_BARLEY      , 1)
@@ -80,7 +81,7 @@ loadMap = function(self, name)
     setFruitGroup(FruitUtil.FRUITTYPE_TRITICALE   , 1)
 
     --
-    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     setFruitGroup(FruitUtil.FRUITTYPE_RAPE        , 2)
     setFruitGroup(FruitUtil.FRUITTYPE_OSR         , 2)
@@ -88,13 +89,13 @@ loadMap = function(self, name)
     setFruitGroup(FruitUtil.FRUITTYPE_HOPS        , 2)
 
     --
-    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     setFruitGroup(FruitUtil.FRUITTYPE_MAIZE       , 3)
     setFruitGroup(FruitUtil.FRUITTYPE_SUNFLOWER   , 3)
 
     --
-    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     setFruitGroup(FruitUtil.FRUITTYPE_POTATO      , 4)
     setFruitGroup(FruitUtil.FRUITTYPE_SUGARBEET   , 4)
@@ -102,7 +103,7 @@ loadMap = function(self, name)
     setFruitGroup(FruitUtil.FRUITTYPE_CARROT      , 4)
 
     --
-    -- ATTENTION! Please use my ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
+    -- ATTENTION! Please use my AAA_ModsSettings.ZIP mod, to customize you personal settings for MaxiMapOverlay.
     --
     setFruitGroup(FruitUtil.FRUITTYPE_GRASS       , 10)
     setFruitGroup(FruitUtil.FRUITTYPE_DRYGRASS    , 10) -- "Hay"
@@ -151,13 +152,15 @@ loadMap = function(self, name)
         end
     else
         print("")
-        print("NOTE: Optional 'ModsSettings'-mod not found or not required version. Unable to use player customized settings for the 'MaxiMapOverlay'-mod.")
+        print("MaxiMapOverlay: Optional 'AAA_ModsSettings'-mod not found or not required version. Unable to use player customized settings for the 'MaxiMapOverlay'-mod.")
         print("")
         self.isMissingModsSettingsMod = true
     end
 
     --
     if not self.initialized then
+        -- Need to render the overlay _after_ the actual in-game PDA map,
+        -- so using "painter's algorithm"... well, if that can be said about 'code'.
         IngameMap.draw = Utils.appendedFunction(IngameMap.draw, MaxiMapOverlay.ingameMapDraw)
         self.initialized = true
     end
@@ -217,9 +220,6 @@ refreshMapOverlayFruit = function(self, updateLegend)
                         title       = Fillable.fillTypeIndexToDesc[FruitUtil.fruitTypeToFillType[fruitType]].nameI18N,
                         fruitType   = fruitType,
                     }
-                    --if true then
-                    --    element.title = ("%s (%d:%d)"):format(element.title, fruitType, fruit.id)
-                    --end
                     
                     if ModsSettings ~= nil and ModsSettings.setStringLocal ~= nil and ModsSettings.setBoolLocal ~= nil then
                         local fruitName = fruitDesc.name
@@ -300,8 +300,6 @@ refreshMapOverlayGrowth = function(self, updateLegend)
                     groupNum    = i,
                     title       = g_i18n:getText(("%s%d"):format(growthType,j)),
                     color       = MaxiMapOverlay.growthColors[growthType][j],
-                    --name        = growthType,
-                    --index       = j,
                 }
                 
                 local jj = j
@@ -429,7 +427,6 @@ update = function(self, dt)
             
             self.pageIsDirty = true
             self:refreshMapOverlay(self.overlayPage, true)
-            --self:buildPage(self.overlayPage, g_currentMission.controlPlayer)
         end
     end
 
@@ -569,7 +566,6 @@ buildPage = function(self, pageNum, enableEditable)
     
     local panelBackgroundColor = {1,1,1,0.5}
     local panelPaddingVerti = 0.008
-    --local panelPaddingHoriz = 0.008 -- TODO: Aspect Ratio
     local panelPaddingHoriz = panelPaddingVerti / g_screenAspectRatio
     
     local titleBackgroundColor = {0,0,0,1}
@@ -587,7 +583,6 @@ buildPage = function(self, pageNum, enableEditable)
     local cropFontSize = cropRowHeight * 0.8
     local cropForegroundColor = {0,0,0,1}
     local cropColorBoxHeight = cropRowHeight * 0.8
-    --local cropColorBoxWidth = cropColorBoxHeight -- TODO: Aspect Ratio
     local cropColorBoxWidth = cropColorBoxHeight / g_screenAspectRatio
     local cropColorBoxPaddingVerti = cropColorBoxHeight * 0.06
     local cropColorBoxPaddingHoriz = cropColorBoxWidth * (0.06 / g_screenAspectRatio)
@@ -595,7 +590,6 @@ buildPage = function(self, pageNum, enableEditable)
     local h = 0.80
     local y = (1.0 - 0.1) - h
     local x = g_currentMission.ingameMap.mapPosX + g_currentMission.ingameMap.mapWidth
-    --local w = (1.0 - x) - 0.05 -- TODO: Aspect Ratio
     local w = getTextWidth(titleFontSize, "MM MaxiMap Overlay mod MM")
     
     local yy = (y+h)-titleHeight
@@ -867,11 +861,6 @@ renderPanes_v2 = function(self)
 end,
 
 }
-
--- Need to render the overlay _after_ the actual in-game PDA map,
--- so using "painter's algorithm"... well, if that can be said about 'code'.
---MaxiMapOverlay.orig_draw = FSBaseMission.draw;
---FSBaseMission.draw  = MaxiMapOverlay.drawLater;
 
 --
 addModEventListener(MaxiMapOverlay);

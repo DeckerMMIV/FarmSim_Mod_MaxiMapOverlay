@@ -3,7 +3,7 @@
     <author>Decker_MMIV</author>
     <contributors></contributors>
     
-    <version>0.5.0</version>
+    <version>1.0.0</version>
 
     <title>
         <en>MaxiMap Overlay</en>
@@ -12,9 +12,8 @@
 
     <description>
         <en>
-<![CDATA[
-
-
+<![CDATA[Can show crop-/fruit-types and their growth on the maximized world-map, without going into the PDA-screen.
+If also using 'ModsSettings' mod, the colors can be customized and selected crop-/fruit-types not shown on the map.
 Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
         </en>
     </description>
@@ -23,9 +22,10 @@ Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
     <multiplayer supported="true"/>
 
     <l10n filenamePrefix="modDesc_l10n" /> <!-- Load the corresponding modDesc_l10n_<language>.XML file, or revert to 'en'/'de'. -->
-
+    <!-- Please contribute any other translations at https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay -->
+    
     <inputBindings>
-        <input name="MAXIMAPOVERLAY_TOGGLE"  category="ONFOOT VEHICLE" key1="KEY_0" key2=""                 button=""         device=""                                      mouse="" />
+        <input name="MAXIMAPOVERLAY_TOGGLE"  category="ONFOOT VEHICLE" key1="KEY_0" key2="" button="" device="" mouse="" />
     </inputBindings>
 
     <extraSourceFiles>

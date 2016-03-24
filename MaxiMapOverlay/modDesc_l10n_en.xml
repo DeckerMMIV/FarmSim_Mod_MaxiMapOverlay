@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
+    <!-- 
+        Please contribute any other translations at 
+        https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay
+    -->
+
     <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
     <translationContributors>
         Decker_MMIV
@@ -7,6 +12,8 @@
 
     <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
     <description>
+        Can show crop-/fruit-types and their growth on the maximized world-map, without going into the PDA-screen.
+        If also using 'ModsSettings' mod, the colors can be customized and selected crop-/fruit-types not shown on the map.
     </description>
 
     <texts>
@@ -46,7 +53,7 @@
         <text name="toggleVisible"      text="Toggle show/hide" />
         
         <text name="missingModsSettingsMod" 
-              text="NOTE! The optional 'ModsSettings' mod was not found or not of the required version.
+              text="NOTE! The optional 'AAA_ModsSettings' mod was not found or not of the required version.
 So your changes to the crop/growth colors and visibility will NOT be saved."
         />
         

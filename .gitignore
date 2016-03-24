@@ -1,3 +1,5 @@
+.releases
+
 # Compiled Lua sources
 luac.out
 
