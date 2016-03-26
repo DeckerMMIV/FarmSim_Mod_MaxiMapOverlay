@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="25">
     <author>Decker_MMIV</author>
-    <contributors></contributors>
+    <contributors>Gonimy_Vetrom</contributors>
     
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <title>
         <en>MaxiMap Overlay</en>
@@ -16,6 +16,11 @@
 If also using 'ModsSettings' mod, the colors can be customized and selected crop-/fruit-types not shown on the map.
 Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
         </en>
+        <ru>
+<![CDATA[Может отображать типы культур и их стадии роста на развернутой карте, не переходя в КПК-экран.
+Если же установлен мод 'ModsSettings', могут быть выбраны и настроены цвета для культур, а также их отображение на карте.
+Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+        </ru>
     </description>
 
     <iconFilename>store_MaxiMapOverlay.dds</iconFilename>

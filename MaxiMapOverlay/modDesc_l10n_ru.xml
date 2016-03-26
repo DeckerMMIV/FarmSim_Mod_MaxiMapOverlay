@@ -45,9 +45,9 @@
         <!-- Editing -->
         <text name="titleEdit"          text="Редактировать - %s"        />
             
-        <text name="spinRed"            text="  Красный: %.3f (%d)" />
+        <text name="spinRed"            text="Красный: %.3f (%d)" />
         <text name="spinGreen"          text="Зелёный: %.3f (%d)" />
-        <text name="spinBlue"           text=" Синий: %.3f (%d)" />
+        <text name="spinBlue"           text="  Синий: %.3f (%d)" />
         <text name="spinAlpha"          text="Прозрачность: %.3f (%d)" />
     
         <text name="toggleVisible"      text="Скрыть/отобразить" />
