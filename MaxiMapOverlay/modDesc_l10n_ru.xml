@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- 
+        Please contribute any other translations at 
+        https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay
+    -->
+
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        Decker_MMIV, Gonimy_Vetrom
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+        Может отображать типы культур и их стадии роста на развернутой карте, не переходя в КПК-экран. Если же установлен мод 'ModsSettings', 
+		могут быть выбраны и настроены цвета для культур, а также их отображение на карте.
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay: Следующая страница"/>
+
+        <!-- Pages -->
+        <text name="pageIntro"          text="Вступление"/>
+        <text name="pageFruitTypes"     text="Культуры"/>
+        <text name="pageGrowth"         text="Стадии роста"/>
+        
+        <text name="nextPageKey"        text="Используйте клавишу '%s' для переключения страниц"/>
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Засеяно"           />
+        <text name="growing2"           text="Растёт"            />
+        <text name="growing3"           text="Растёт"            />
+        <text name="growing4"           text="Растёт"            />
+        <text name="growing5"           text="Растёт (картофель)"/>
+        <text name="readyToPrepare1"    text="Удаление ботвы"    />
+        <text name="readyToPrepare2"    text="Удаление ботвы"    />
+        <text name="readyToPrepare3"    text="Удаление ботвы"    />
+        <text name="readyToHarvest1"    text="Готов к уборке"    />        
+        <text name="readyToHarvest2"    text="Готов к уборке"    />        
+        <text name="readyToHarvest3"    text="Готов к уборке"    />        
+        <text name="withered1"          text="Засох"             />        
+        <text name="cutted1"            text="Урожай убран"      />        
+
+        <!-- Editing -->
+        <text name="titleEdit"          text="Редактировать - %s"        />
+            
+        <text name="spinRed"            text="  Красный: %.3f (%d)" />
+        <text name="spinGreen"          text="Зелёный: %.3f (%d)" />
+        <text name="spinBlue"           text=" Синий: %.3f (%d)" />
+        <text name="spinAlpha"          text="Прозрачность: %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Скрыть/отобразить" />
+        
+        <text name="missingModsSettingsMod" 
+              text="ВНИМАНИЕ! Дополнительный мод 'ModsSettings' не был найден или нет требуемой версии.
+Так что ваши изменения для цветов культур/стадий роста и видимости НЕ будут сохранены."
+        />
+        
+    </texts>
+</l10n>
