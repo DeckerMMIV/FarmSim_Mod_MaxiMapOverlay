@@ -317,7 +317,7 @@ refreshMapOverlayGrowth = function(self, updateLegend)
                     end
                 else
                     element.setColor = function(self,color)
-                        MaxiMapMod.growthColors[growthType][jj] = color
+                        MaxiMapOverlay.growthColors[growthType][jj] = color
                         self.color = color
                     end
                 end
