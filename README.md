@@ -4,6 +4,9 @@ Farming Simulator modification - MaxiMap Overlay
 
 ## Change-log
 
+1.1.0
+- Identified a better 'injection-point', so map-icons how are rendered on-top of the MaxiMap-overlay
+
 1.0.4
 - Fix for issue #3 (second part)
 

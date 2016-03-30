@@ -161,9 +161,8 @@ loadMap = function(self, name)
 
     --
     if not self.initialized then
-        -- Need to render the overlay _after_ the actual in-game PDA map,
-        -- so using "painter's algorithm"... well, if that can be said about 'code'.
-        IngameMap.draw = Utils.appendedFunction(IngameMap.draw, MaxiMapOverlay.ingameMapDraw)
+        -- Identified an 'injection-point', so the map-icons will be rendered on-top of the overlay.
+        IngameMap.renderHotspots = Utils.prependedFunction(IngameMap.renderHotspots, MaxiMapOverlay.ingameMapRenderHotspots)
         self.initialized = true
     end
 end,
@@ -454,6 +453,12 @@ draw = function(self)
     elseif self.isEditable then
         self.isEditable = false
         InputBinding.setShowMouseCursor(self.isEditable);
+    end
+end,
+
+ingameMapRenderHotspots = function(self, a,b,c,d,e)
+    if e==false then
+        MaxiMapOverlay.ingameMapDraw(self)
     end
 end,
 
