@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- 
+        Please contribute any other translations at 
+        https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay
+    -->
+
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        Kobe
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+		Zeigt die Fruchttypen und deren Wachstum auf der maximierten Weltkarte an, ohne den PDA aufzurufen.
+		Wenn die Mod 'ModsSettings' verwendet wird, kann man die Farben der nichtdargestelleten Fruchttypen ändern.
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay:Nächste Seite"      />
+
+        <!-- Pages -->
+        <text name="pageIntro"          text="Einleitung"          />
+        <text name="pageFruitTypes"     text="Fruchttypen"    />
+        <text name="pageGrowth"         text="Wachstum"         />
+        
+        <text name="nextPageKey"        text="Drücke Taste '%s' für die nächste Seite" />
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Angesät"               />
+        <text name="growing2"           text="Wachsend 1"              />
+        <text name="growing3"           text="Wachsend 2"              />
+        <text name="growing4"           text="Wachsend 3"              />
+        <text name="growing5"           text="Wachsend 4 (Kartoffeln)"   />
+        <text name="readyToPrepare1"    text="Bereit zur Entblätterung 1"    />
+        <text name="readyToPrepare2"    text="Bereit zur Entblätterung 2"    />
+        <text name="readyToPrepare3"    text="Bereit zur Entblätterung 3"    />
+        <text name="readyToHarvest1"    text="Bereit zur Ernte 1"     />        
+        <text name="readyToHarvest2"    text="Bereit zur Ernte 2"     />        
+        <text name="readyToHarvest3"    text="Bereit zur Ernte 3"     />        
+        <text name="withered1"          text="Verwelkt"             />        
+        <text name="cutted1"            text="Ernte abgeschlossen"    />        
+
+        <!-- Editing -->
+        <text name="titleEdit"          text="Ändern - %s"        />
+            
+        <text name="spinRed"            text="  Rot: %.3f (%d)" />
+        <text name="spinGreen"          text=" Grün: %.3f (%d)" />
+        <text name="spinBlue"           text=" Blau: %.3f (%d)" />
+        <text name="spinAlpha"          text="Alpha: %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Umschalten anzeigen / ausblenden" />
+        
+        <text name="missingModsSettingsMod" 
+              text="ACHTUNG! Die optionale Mod 'ModsSettings' wurde nicht gefunden oder entspricht nicht der geforderten Version.
+Alle Änderungen an den Farben und der Sichtbarkeit der Fruchttypen werden NICHT gespeichert."
+        />
+
+    </texts>
+</l10n>
