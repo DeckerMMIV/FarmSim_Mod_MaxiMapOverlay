@@ -128,6 +128,8 @@ loadMap = function(self, name)
             if defColor ~= nil then
                 if #defaultColorArray == 4 then
                     table.insert(defColor, defaultColorArray[4])
+                else
+                    table.insert(defColor, "1")
                 end
                 return defColor
             end
@@ -492,7 +494,8 @@ offsetRGB = function(self,r,g,b)
         self.legendFruits[self.selectedElement]:setColor({
             chg(color[1], r),
             chg(color[2], g),
-            chg(color[3], b)
+            chg(color[3], b),
+                color[4]
         } )
         
         self:setSpinRGB()
@@ -508,7 +511,7 @@ setSpinRGB = function(self)
             g_i18n:getText("spinBlue"),
             g_i18n:getText("spinAlpha"),
         }
-        for i=1,3 do
+        for i=1,4 do
             colorText[i] = colorText[i]:format(color[i], math.floor(255*color[i]))
         end
 
@@ -518,7 +521,7 @@ setSpinRGB = function(self)
         
         local colorBox = self.legendFruits[self.selectedElement].colorBox
         if colorBox ~= nil then
-            colorBox:setColor( { color[1],color[2],color[3],1 } )
+            colorBox:setColor( { color[1],color[2],color[3],color[4] } )
         end
         
         self:refreshMapOverlay(self.overlayPage, false)
@@ -615,7 +618,7 @@ buildPage = function(self, pageNum, enableEditable)
         for i,legend in ipairs(self.legendFruits) do
             local title = legend.title
             local color = legend.color
-            local colorFruit = {color[1],color[2],color[3],1}
+            local colorFruit = { color[1],color[2],color[3],color[4] }
     
             if prevGroupNum ~= legend.groupNum then
                 yy = yy-cropRowHeight/7
