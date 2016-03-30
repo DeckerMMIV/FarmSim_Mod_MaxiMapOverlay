@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="25">
     <author>Decker_MMIV</author>
-    <contributors>Gonimy_Vetrom</contributors>
+    <contributors>Gonimy_Vetrom, Vanquish081</contributors>
     
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <title>
         <en>MaxiMap Overlay</en>
         <de>MaxiMap Overlay</de>
+        <ru>MaxiMap Overlay</ru>
+        <es>MaxiMap Overlay</es>
     </title>
 
     <description>
@@ -21,6 +23,11 @@ Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
 Если же установлен мод 'ModsSettings', могут быть выбраны и настроены цвета для культур, а также их отображение на карте.
 Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
         </ru>
+        <es>
+<![CDATA[Puede mostrar cultivos/furtos y sus estados cuando maximiza la PDA sin tener que ir a la PDA (i).
+Si esta usando 'ModsSettings' mod, los colores pueden ser personalizados y seleccionar que cultivos/frutos no mostrar en el mapa.
+Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+        </es>
     </description>
 
     <iconFilename>store_MaxiMapOverlay.dds</iconFilename>

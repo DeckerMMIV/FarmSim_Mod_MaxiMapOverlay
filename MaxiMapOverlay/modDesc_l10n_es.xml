@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- 
+        Please contribute any other translations at 
+        https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay
+    -->
+
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        Decker_MMIV, Vanquish081
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+        Puede mostrar cultivos/furtos y sus estados cuando maximiza la PDA sin tener que ir a la PDA (i).
+        Si esta usando 'ModsSettings' mod, los colores pueden ser personalizados y seleccionar que cultivos/frutos no mostrar en el mapa.
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay:Pag. Sig."      />
+
+        <!-- Pages -->
+        <text name="pageIntro"          text="Intro"          />
+        <text name="pageFruitTypes"     text="Cultivos"    />
+        <text name="pageGrowth"         text="Estado"         />
+        
+        <text name="nextPageKey"        text="Use tecla '%s' para cambiar pagina" />
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Sembrado"               />
+        <text name="growing2"           text="Estado 1"              />
+        <text name="growing3"           text="Estado 2"              />
+        <text name="growing4"           text="Estado 3"              />
+        <text name="growing5"           text="Estado 4 (patatas)"   />
+        <text name="readyToPrepare1"    text="Listo Desfoliage 1"    />
+        <text name="readyToPrepare2"    text="Listo Desfoliage 2"    />
+        <text name="readyToPrepare3"    text="Desfoliar!!"    />
+        <text name="readyToHarvest1"    text="Preparado para cosechar"     />        
+        <text name="readyToHarvest2"    text="Debería cosecharse"     />        
+        <text name="readyToHarvest3"    text="Cosechar!!"     />        
+        <text name="withered1"          text="Podrido"             />        
+        <text name="cutted1"            text="Cosechado"    />        
+
+        <!-- Editing -->
+        <text name="titleEdit"          text="Editar - %s"        />
+            
+        <text name="spinRed"            text=" Rojo: %.3f (%d)" />
+        <text name="spinGreen"          text="Verde: %.3f (%d)" />
+        <text name="spinBlue"           text=" Azul: %.3f (%d)" />
+        <text name="spinAlpha"          text="Alpha: %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Mostrar/Ocultar" />
+        
+        <text name="missingModsSettingsMod" 
+              text="NOTA! El mod opctional 'ModsSettings' no se ha encontrado o no la version requerida.
+Tus cambios en los colores de estado de los cultivos no seran guardados."
+        />
+        
+    </texts>
+</l10n>
