@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        Ziuta
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+        Można pokazać poszczególne rodzaje upraw/owoców i ich wzrost na zmaksymalizowanej mapie świata, bez wchodzenia na ekran PDA.
+        Po użyciu modu 'ModsSettings', możesz dostosowywać kolory i wybierać rodzaje upraw/owoców, które nie są pokazane na mapie.
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay: Następna strona" />
+
+        <!-- Pages -->
+        <text name="pageIntro"          text="Intro" />
+        <text name="pageFruitTypes"     text="Rodzaje upraw" />
+        <text name="pageGrowth"         text="Wzrost" />
+        
+        <text name="nextPageKey"        text="Użyj klawisza '%s' do zmiany strony" />
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Zasiane" />
+        <text name="growing2"           text="Rośnie" />
+        <text name="growing3"           text="Rośnie" />
+        <text name="growing4"           text="Rośnie" />
+        <text name="growing5"           text="Rośnie (ziemniaki)" />
+        <text name="readyToPrepare1"    text="Gotowe do ścięcia łęcin" />
+        <text name="readyToPrepare2"    text="Gotowe do ścięcia łęcin" />
+        <text name="readyToPrepare3"    text="Gotowe do ścięcia łęcin" />
+        <text name="readyToHarvest1"    text="Gotowe do zbioru" />        
+        <text name="readyToHarvest2"    text="Gotowe do zbioru" />        
+        <text name="readyToHarvest3"    text="Gotowe do zbioru" />        
+        <text name="withered1"          text="Uschnięte" />        
+        <text name="cutted1"            text="Zebrane" />        
+
+        <!-- Editing -->
+        <text name="titleEdit"          text="Edycja - %s" />
+            
+        <text name="spinRed"            text="       Czerwony: %.3f (%d)" />
+        <text name="spinGreen"          text="        Zielony: %.3f (%d)" />
+        <text name="spinBlue"           text="      Niebieski: %.3f (%d)" />
+        <text name="spinAlpha"          text="Przezroczystość: %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Zmiana pokaż/ukryj" />
+        
+        <text name="missingModsSettingsMod" 
+              text="UWAGA! Opcjonalny mod 'AAA_ModsSettings' nie zosta znaleziony nie jest w wymaganej wersji.
+Więc twoje zmiany wzrostu, koloru i widzialnoci upraw NIE zostaną zapisane."
+        />
+        
+    </texts>
+</l10n>
