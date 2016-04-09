@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="25">
     <author>Decker_MMIV</author>
-    <contributors>Gonimy_Vetrom, Vanquish081, Kobe</contributors>
+    <contributors>Gonimy_Vetrom, Vanquish081, Kobe, Ziuta</contributors>
     
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <title>
         <en>MaxiMap Overlay</en>
         <ru>MaxiMap Overlay</ru>
         <es>MaxiMap Overlay</es>
         <de>MaxiMap Overlay</de>
+        <pl>MaxiMap Overlay</pl>
     </title>
 
     <description>
@@ -33,6 +34,11 @@ Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
 Wenn die Mod 'ModsSettings' verwendet wird, kann man die Farben der nichtdargestelleten Fruchttypen ändern.
 Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
         </de>
+        <pl>
+<![CDATA[Można pokazać poszczególne rodzaje upraw/owoców i ich wzrost na zmaksymalizowanej mapie świata, bez wchodzenia na ekran PDA.
+Po użyciu modu 'ModsSettings', możesz dostosowywać kolory i wybierać rodzaje upraw/owoców, które nie są pokazane na mapie.
+Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+        </pl>
     </description>
 
     <iconFilename>store_MaxiMapOverlay.dds</iconFilename>
