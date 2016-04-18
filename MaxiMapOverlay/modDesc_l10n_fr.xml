@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- 
+        Please contribute any other translations at 
+        https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay
+    -->
+
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        Txadi
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+        Permet de montrer les types de cultures ainsi que les niveaux de pousse des cultures sur la carte agrandie, sans avoir besoin d'aller sur le pda.
+        Ce mod utilise le Mod "ModSettings" et les couleurs peuvent être modifiées. Les cultures peuvent aussi être masquées en cliquant sur le nom. 
+        Ne marche que lorsque vous êtes à pied.
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay : Page suivante"      />
+
+        <!-- Pages -->
+        <text name="pageIntro"          text="Intro"          />
+        <text name="pageFruitTypes"     text="Types"    />
+        <text name="pageGrowth"         text="Contrôle"         />
+        
+        <text name="nextPageKey"        text="Utiliser la touche '%s' pour changer de page" />
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Semé"               />
+        <text name="growing2"           text="Pousse Jour 1"              />
+        <text name="growing3"           text="Pousse Jour 2"              />
+        <text name="growing4"           text="Pousse Jour 3"              />
+        <text name="growing5"           text="Pousse (Pomme de terre)"   />
+        <text name="readyToPrepare1"    text="Prêt jour 1"    />
+        <text name="readyToPrepare2"    text="Prêt jour 2"    />
+        <text name="readyToPrepare3"    text="Prêt jour 3"    />
+        <text name="readyToHarvest1"    text="Prêt à être moissonner jour 1"     />        
+        <text name="readyToHarvest2"    text="Prêt à être moissonner jour 2"     />        
+        <text name="readyToHarvest3"    text="Prêt à être moissonner jour 3"     />        
+        <text name="withered1"          text="Fâné"             />        
+        <text name="cutted1"            text="Récolte finie"    />        
+
+        <!-- Editing -->
+        <text name="titleEdit"          text="Edition - %s"        />
+            
+        <text name="spinRed"            text="Rouge : %.3f (%d)" />
+        <text name="spinGreen"          text="Vert : %.3f (%d)" />
+        <text name="spinBlue"           text="Bleu : %.3f (%d)" />
+        <text name="spinAlpha"          text="Alpha : %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Montrer / Cacher" />
+        
+        <text name="missingModsSettingsMod" 
+              text="ATTENTION ! Le mod optionnel 'ModsSettings' n'a pas été trouvé ou n'est pas à jour.
+Vos changements de couleurs ne seront pas sauvegardés !"
+        />
+        
+    </texts>
+</l10n>

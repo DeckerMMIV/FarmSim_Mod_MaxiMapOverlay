@@ -4,6 +4,9 @@ Farming Simulator modification - MaxiMap Overlay
 
 ## Change-log
 
+1.1.3
+- French translation by Txadi
+
 1.1.2
 - Polish translation by Ziuta
 
