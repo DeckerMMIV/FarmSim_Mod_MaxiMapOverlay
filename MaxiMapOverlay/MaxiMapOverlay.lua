@@ -354,12 +354,12 @@ refreshMapOverlayGrowth = function(self, updateLegend)
             if fruitDesc.maxPreparingGrowthState >= 0 then
                 -- ...and can be withered?
                 if fruitDesc.minPreparingGrowthState < fruitDesc.maxPreparingGrowthState then -- Assumption that if there are multiple stages for preparing, then it can be withered too.
-                    witheredValue = maxMatureValue  -- Assumption that 'withering' is just after max-mature.
+                    witheredValue = 1 + maxMatureValue  -- Assumption that 'withering' is just after max-mature.
                 end
             else
                 -- Can be withered?
                 if fruitDesc.cutState > fruitDesc.maxHarvestingGrowthState then -- Assumption that if 'cutState' is after max-harvesting, then fruit can be withered.
-                    witheredValue = maxMatureValue  -- Assumption that 'withering' is just after max-mature.
+                    witheredValue = 1 + maxMatureValue  -- Assumption that 'withering' is just after max-mature.
                 end
             end
             

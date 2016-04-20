@@ -4,6 +4,9 @@ Farming Simulator modification - MaxiMap Overlay
 
 ## Change-log
 
+1.1.4
+- Fix for 'withering'-color was not showing on the overlay.
+
 1.1.3
 - French translation by Txadi
 
