@@ -7,13 +7,14 @@
 
     <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
     <translationContributors>
-        Decker_MMIV, Gonimy_Vetrom
+        Decker_MMIV
+        Gonimy_Vetrom
     </translationContributors>
 
     <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
     <description>
         Может отображать типы культур и их стадии роста на развернутой карте, не переходя в КПК-экран. Если же установлен мод 'ModsSettings', 
-		могут быть выбраны и настроены цвета для культур, а также их отображение на карте.
+        могут быть выбраны и настроены цвета для культур, а также их отображение на карте.
     </description>
 
     <texts>

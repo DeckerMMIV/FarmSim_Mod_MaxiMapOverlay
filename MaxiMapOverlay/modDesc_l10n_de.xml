@@ -12,8 +12,8 @@
 
     <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
     <description>
-		Zeigt die Fruchttypen und deren Wachstum auf der maximierten Weltkarte an, ohne den PDA aufzurufen.
-		Wenn die Mod 'ModsSettings' verwendet wird, kann man die Farben der nichtdargestelleten Fruchttypen ändern.
+        Zeigt die Fruchttypen und deren Wachstum auf der maximierten Weltkarte an, ohne den PDA aufzurufen.
+        Wenn die Mod 'ModsSettings' verwendet wird, kann man die Farben der nichtdargestelleten Fruchttypen ändern.
     </description>
 
     <texts>

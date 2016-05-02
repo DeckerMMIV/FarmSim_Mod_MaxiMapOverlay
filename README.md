@@ -1,8 +1,13 @@
-# FarmSim_Mod_MaxiMapOverlay
-Farming Simulator modification - MaxiMap Overlay
+# Farming Simulator modification - MaxiMap Overlay
 
+To read more about this mod, find it on;
+- http://fs-uk.com - http://fs-uk.com/mods/list/team/45
+- http://modcentral.co.uk - http://modcentral.co.uk/forum/index.php?resources/authors/decker_mmiv.18/
 
 ## Change-log
+
+1.1.5
+- Misc. minor description changes
 
 1.1.4
 - Fix for 'withering'-color was not showing on the overlay.

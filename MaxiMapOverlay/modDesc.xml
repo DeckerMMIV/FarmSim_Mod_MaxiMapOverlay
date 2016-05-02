@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="25">
     <author>Decker_MMIV</author>
-    <contributors>Gonimy_Vetrom, Vanquish081, Kobe, Ziuta, Txadi</contributors>
     
-    <version>1.1.4</version>
+    <contributors>Gonimy_Vetrom, Vanquish081, Kobe, Ziuta, Txadi</contributors>
+
+    <version>1.1.5</version>
 
     <title>
         <en>MaxiMap Overlay</en>
@@ -18,32 +19,32 @@
         <en>
 <![CDATA[Can show crop-/fruit-types and their growth on the maximized world-map, without going into the PDA-screen.
 If also using 'ModsSettings' mod, the colors can be customized and selected crop-/fruit-types not shown on the map.
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </en>
         <ru>
 <![CDATA[Может отображать типы культур и их стадии роста на развернутой карте, не переходя в КПК-экран.
 Если же установлен мод 'ModsSettings', могут быть выбраны и настроены цвета для культур, а также их отображение на карте.
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </ru>
         <es>
 <![CDATA[Puede mostrar cultivos/furtos y sus estados cuando maximiza la PDA sin tener que ir a la PDA (i).
 Si esta usando 'ModsSettings' mod, los colores pueden ser personalizados y seleccionar que cultivos/frutos no mostrar en el mapa.
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </es>
         <de>
 <![CDATA[Zeigt die Fruchttypen und deren Wachstum auf der maximierten Weltkarte an, ohne den PDA aufzurufen.
 Wenn die Mod 'ModsSettings' verwendet wird, kann man die Farben der nichtdargestelleten Fruchttypen ändern.
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </de>
         <pl>
 <![CDATA[Można pokazać poszczególne rodzaje upraw/owoców i ich wzrost na zmaksymalizowanej mapie świata, bez wchodzenia na ekran PDA.
 Po użyciu modu 'ModsSettings', możesz dostosowywać kolory i wybierać rodzaje upraw/owoców, które nie są pokazane na mapie.
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </pl>
         <fr>
 <![CDATA[Permet de montrer les types de cultures ainsi que les niveaux de pousse des cultures sur la carte agrandie, sans avoir besoin d'aller sur le pda.
 Ce mod utilise le Mod "ModSettings" et les couleurs peuvent être modifiées. Les cultures peuvent aussi être masquées en cliquant sur le nom. Ne marche que lorsque vous êtes à pied.
-Decker_MMIV - fs-uk.com, forum.farming-simulator.com, modhoster.com]]>
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </fr>
     </description>
 
