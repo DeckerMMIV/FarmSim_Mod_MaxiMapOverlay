@@ -1,12 +1,12 @@
-[b]MaxiMap Overlay (v1.1.x)[/b]
+[b]MaxiMap Overlay (v1.2.x)[/b]
 
-
-[i]Remember to check the support topic for any additional information regarding this mod[/i]
 
 [i]Attention: Remember to unpack/unzip the downloaded file, as it contains two mod files![/i]
 
 
 [b][u]Change-log[/u][/b]
+1.2.0
+- Using updated 'ModsSettings'-mod version 0.2.0
 1.1.5
 - Map-icons are now rendered on-top of the MaxiMap-overlay
 - Fix for 'withering'-color was not showing on the overlay
@@ -33,11 +33,6 @@ Please note: Only when on foot (i.e. not driving a vehicle), the mouse-cursor be
 [b]mouse-cursor[/b] = Only available when on foot, to select and edit colors & visibility
 
 
-[b][u]Problems or bugs?[/u][/b]
-
-If you encounter problems or bugs using the 'MaxiMapOverlay' mod, please use the support-thread.
-
-
 [b][u]Restrictions[/u][/b]
 
 These mod files MaxiMapOverlay.ZIP and AAA_ModsSettings.ZIP MUST NEVER be embedded in any other mod. - However it is accepted if they are included in a mod-pack, [b]when the mods original hash-values are kept intact.[/b]
@@ -45,6 +40,11 @@ These mod files MaxiMapOverlay.ZIP and AAA_ModsSettings.ZIP MUST NEVER be embedd
 Please do NOT upload this mod to any other hosting site - I can do that myself, when needed!
 
 Keep the original download link!
+
+
+[b][u]Problems or bugs?[/u][/b]
+
+If you encounter problems or bugs using the 'MaxiMapOverlay' mod, please use the support-thread.
 
 
 

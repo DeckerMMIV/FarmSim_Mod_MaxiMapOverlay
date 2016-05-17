@@ -2,9 +2,12 @@
 
 To read more about this mod, find it on;
 - http://fs-uk.com - http://fs-uk.com/mods/list/team/45
-- http://modcentral.co.uk - http://modcentral.co.uk/forum/index.php?resources/authors/decker_mmiv.18/
+- http://modcentral.co.uk - http://modcentral.co.uk/resources/authors/decker_mmiv.18/
 
 ## Change-log
+
+1.2.0
+- Using updated 'ModsSettings'-mod version 0.2.0
 
 1.1.5
 - Misc. minor description changes
