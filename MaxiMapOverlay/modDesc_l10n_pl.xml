@@ -53,8 +53,8 @@
         <text name="toggleVisible"      text="Zmiana pokaż/ukryj" />
         
         <text name="missingModsSettingsMod" 
-              text="UWAGA! Opcjonalny mod 'AAA_ModsSettings' nie zosta znaleziony lub nie jest w wymaganej wersji.
-Więc twoje zmiany wzrostu, koloru i widzialnoci upraw NIE zostaną zapisane."
+              text="UWAGA! Opcjonalny mod 'AAA_ModsSettings' nie został znaleziony lub nie jest w wymaganej wersji.
+Twoje zmiany wzrostu, koloru i widoczność upraw NIE zostaną zapisane."
         />
         
     </texts>
