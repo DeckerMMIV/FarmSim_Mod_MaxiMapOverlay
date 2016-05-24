@@ -21,7 +21,7 @@
         <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay: Następna strona" />
 
         <!-- Pages -->
-        <text name="pageIntro"          text="Intro" />
+        <text name="pageIntro"          text="Wstęp" />
         <text name="pageFruitTypes"     text="Rodzaje upraw" />
         <text name="pageGrowth"         text="Wzrost" />
         
@@ -53,8 +53,8 @@
         <text name="toggleVisible"      text="Zmiana pokaż/ukryj" />
         
         <text name="missingModsSettingsMod" 
-              text="UWAGA! Opcjonalny mod 'AAA_ModsSettings' nie zosta znaleziony nie jest w wymaganej wersji.
-Więc twoje zmiany wzrostu, koloru i widzialnoci upraw NIE zostaną zapisane."
+              text="UWAGA! Opcjonalny mod 'AAA_ModsSettings' nie został znaleziony lub nie jest w wymaganej wersji.
+Twoje zmiany wzrostu, koloru i widoczności upraw NIE zostaną zapisane."
         />
         
     </texts>
