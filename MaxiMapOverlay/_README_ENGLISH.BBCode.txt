@@ -5,6 +5,8 @@
 
 
 [b][u]Change-log[/u][/b]
+1.2.1
+- Italian translation by fcelsa
 1.2.0
 - Using updated 'ModsSettings'-mod version 0.2.0
 1.1.5
@@ -50,3 +52,9 @@ If you encounter problems or bugs using the 'MaxiMapOverlay' mod, please use the
 
 Credits:
 Script: Decker_MMIV
+Italian translation by fcelsa
+French translation by Txadi
+Polish translation by Ziuta
+German translation by Kobe
+Spanish translation by Vanquish081
+Russian translation by Gonimy_Vetrom

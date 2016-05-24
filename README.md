@@ -6,6 +6,9 @@ To read more about this mod, find it on;
 
 ## Change-log
 
+1.2.1
+- Italian translation by fcelsa
+
 1.2.0
 - Using updated 'ModsSettings'-mod version 0.2.0
 

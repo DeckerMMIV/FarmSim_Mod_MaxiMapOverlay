@@ -2,9 +2,9 @@
 <modDesc descVersion="25">
     <author>Decker_MMIV</author>
     
-    <contributors>Gonimy_Vetrom, Vanquish081, Kobe, Ziuta, Txadi</contributors>
+    <contributors>Gonimy_Vetrom, Vanquish081, Kobe, Ziuta, Txadi, fcelsa</contributors>
 
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 
     <title>
         <en>MaxiMap Overlay</en>
@@ -13,6 +13,7 @@
         <de>MaxiMap Overlay</de>
         <pl>MaxiMap Overlay</pl>
         <fr>MaxiMap Overlay</fr>
+        <it>MaxiMap Overlay</it>
     </title>
 
     <description>
@@ -46,6 +47,11 @@ Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoste
 Ce mod utilise le Mod "ModSettings" et les couleurs peuvent être modifiées. Les cultures peuvent aussi être masquées en cliquant sur le nom. Ne marche que lorsque vous êtes à pied.
 Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
         </fr>
+        <it>
+<![CDATA[Permette di visualizzare i tipi di raccolto ed il relativo livello di crescita con la mappa ingrandita, senza la necessità di usare il PDA.
+Viene anche utilizzata la mod "ModSettings" per memorizzare i colori eventualmente personalizzati dall'utente; funziona solo quando si è a piedi.
+Decker_MMIV - fs-uk.com, modcentral.co.uk, forum.farming-simulator.com, modhoster.com]]>
+        </it>
     </description>
 
     <iconFilename>store_MaxiMapOverlay.dds</iconFilename>
