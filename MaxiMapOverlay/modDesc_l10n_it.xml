@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- 
+        Please contribute any other translations at 
+        https://github.com/DeckerMMIV/FarmSim_Mod_MaxiMapOverlay
+    -->
+
+    <!-- Add your own name or nickname here, when you contribute to this file's translation, so I know who to put into the credits. -->
+    <translationContributors>
+        fcelsa
+    </translationContributors>
+
+    <!-- Note that 'description' is only here for easier translations. It needs to be manually copied to ModDesc.XML later. -->
+    <description>
+        Permette di visualizzare i tipi di raccolto ed il relativo livello di crescita con la mappa ingrandita, senza la necessità di usare il PDA.
+		Viene anche utilizzata la mod "ModSettings" per memorizzare i colori eventualmente personalizzati dall'utente; funziona solo quando si è a piedi.
+    </description>
+
+    <texts>
+        <!-- InputBindings - Controls -->
+        <text name="MAXIMAPOVERLAY_TOGGLE"      text="MaxiMap Overlay:Pagina seguente"      />
+
+        <!-- Pages -->
+        <text name="pageIntro"          text="Intro"          />
+        <text name="pageFruitTypes"     text="Prodotti"       />
+        <text name="pageGrowth"         text="Crescita"         />
+        
+        <text name="nextPageKey"        text="Usa il tasto '%s' per cambiare pagina" />
+        
+        <!-- Growth states -->
+        <text name="growing1"           text="Seminato"             />
+        <text name="growing2"           text="Crescita giorno 1"    />
+        <text name="growing3"           text="Crescita giorno 2"    />
+        <text name="growing4"           text="Crescita giorno 3"    />
+        <text name="growing5"           text="Crescita (patate)"    />
+        <text name="readyToPrepare1"    text="Defogliazione g 1"    />
+        <text name="readyToPrepare2"    text="Defogliazione g 2"    />
+        <text name="readyToPrepare3"    text="Defogliazione g 3"    />
+        <text name="readyToHarvest1"    text="Raccolto pronto g 1"  />        
+        <text name="readyToHarvest2"    text="Raccolto pronto g 2"  />        
+        <text name="readyToHarvest3"    text="Raccolto pronto g 3"  />        
+        <text name="withered1"          text="Appassito"            />        
+        <text name="cutted1"            text="Incolto"              />        
+
+        <!-- Editing -->
+        <text name="titleEdit"          text="Edita - %s"       />
+            
+        <text name="spinRed"            text="Rosso: %.3f (%d)" />
+        <text name="spinGreen"          text="Verde: %.3f (%d)" />
+        <text name="spinBlue"           text="  Blu: %.3f (%d)" />
+        <text name="spinAlpha"          text="Alpha: %.3f (%d)" />
+    
+        <text name="toggleVisible"      text="Mostra / Nascondi" />
+        
+        <text name="missingModsSettingsMod" 
+              text="ATTENZIONE!  mod opzionale 'AAA_ModsSettings' non installata o in versione non corretta.
+Le modifiche ai colori non saranno salvate."
+        />
+        
+    </texts>
+</l10n>
