@@ -209,6 +209,8 @@ refreshMapOverlayFruit = function(self, updateLegend)
         self.legendFruits = {}
     end
 
+    local currentDensityMapFileName = getDensityMapFileName(g_currentMission.fruits[FruitUtil.FRUITTYPE_WHEAT].id)
+    
     for fruitType,fruit in pairs(g_currentMission.fruits) do
         if fruit ~= nil and fruit.id ~= nil and fruit.id ~= 0 then
             local fruitDesc = FruitUtil.fruitIndexToDesc[fruitType]
@@ -256,7 +258,9 @@ refreshMapOverlayFruit = function(self, updateLegend)
                 end
 
                 if not fruitDesc.mod_HideFruitOnMap then
-                    setFoliageStateOverlayFruitTypeColor(self.foliageStateOverlay, fruit.id, unpack(fruitDesc.fruitMapColor, 1, 3))
+                    if getDensityMapFileName(fruit.id) == currentDensityMapFileName then
+                        setFoliageStateOverlayFruitTypeColor(self.foliageStateOverlay, fruit.id, unpack(fruitDesc.fruitMapColor, 1, 3))
+                    end
                 end
             end
         end
@@ -330,6 +334,8 @@ refreshMapOverlayGrowth = function(self, updateLegend)
         
     end
     
+    local currentDensityMapFileName = getDensityMapFileName(g_currentMission.fruits[FruitUtil.FRUITTYPE_WHEAT].id)
+    
     for fruitType,fruit in pairs(g_currentMission.fruits) do
       if fruit ~= nil then
         local foliageId = fruit.id
@@ -371,26 +377,28 @@ refreshMapOverlayGrowth = function(self, updateLegend)
                 return growthDesc[Utils.clamp(idx, 1, #growthDesc)]
             end
             
-            --
-            if fruitDesc.needsSeeding == true and witheredValue > 0 and cuttedValue > witheredValue then
-                setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, cuttedValue, unpack(getColor("cutted", 1), 1, 3))
-            end
-            --
-            if witheredValue > 0 then
-                setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, witheredValue, unpack(getColor("withered", 1), 1, 3))
-            end
-            --
-            if fruitDesc.maxPreparingGrowthState >= 0 then
-                for i=minMatureValue,maxMatureValue do
-                    setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, i, unpack(getColor("readyToPrepare", (i - minMatureValue) + 1), 1, 3))
+            if getDensityMapFileName(fruit.id) == currentDensityMapFileName then
+                --
+                if fruitDesc.needsSeeding == true and witheredValue > 0 and cuttedValue > witheredValue then
+                    setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, cuttedValue, unpack(getColor("cutted", 1), 1, 3))
                 end
-            end
-            --
-            for i=minHarvestValue,maxHarvestValue do
-                setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, i, unpack(getColor("readyToHarvest", (i - minHarvestValue) + 1), 1, 3))
-            end
-            for i=minGrowthValue,maxGrowthValue do
-                setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, i, unpack(getColor("growing", (i - minGrowthValue) + 1), 1, 3))
+                --
+                if witheredValue > 0 then
+                    setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, witheredValue, unpack(getColor("withered", 1), 1, 3))
+                end
+                --
+                if fruitDesc.maxPreparingGrowthState >= 0 then
+                    for i=minMatureValue,maxMatureValue do
+                        setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, i, unpack(getColor("readyToPrepare", (i - minMatureValue) + 1), 1, 3))
+                    end
+                end
+                --
+                for i=minHarvestValue,maxHarvestValue do
+                    setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, i, unpack(getColor("readyToHarvest", (i - minHarvestValue) + 1), 1, 3))
+                end
+                for i=minGrowthValue,maxGrowthValue do
+                    setFoliageStateOverlayGrowthStateColor(self.foliageStateOverlay, foliageId, i, unpack(getColor("growing", (i - minGrowthValue) + 1), 1, 3))
+                end
             end
         end
       end

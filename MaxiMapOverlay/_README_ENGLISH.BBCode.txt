@@ -1,10 +1,12 @@
-[b]MaxiMap Overlay (v1.2.x)[/b]
+[b]MaxiMap Overlay (v1.3.x)[/b]
 
 
 [i]Attention: Remember to unpack/unzip the downloaded file, as it contains two mod files![/i]
 
 
 [b][u]Change-log[/u][/b]
+1.3.0
+- Only set fruit-color/-growthstate for a single FoliageMultiLayer for the overlay.
 1.2.1
 - Italian translation by fcelsa
 - Polish translation updated by Ziuta & Dzi4d3k

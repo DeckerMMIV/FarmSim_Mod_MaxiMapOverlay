@@ -6,6 +6,10 @@ To read more about this mod, find it on;
 
 ## Change-log
 
+1.3.0
+- Only set fruit-color/-growthstate for a single FoliageMultiLayer for the overlay.
+  This should hopefully "mute" some errors that would otherwise appear, for maps that have 'Multiple FoliageMultiLayers' and using more than 15 fruits.
+
 1.2.1
 - Italian translation by fcelsa
 - Polish translation updated by Ziuta & Dzi4d3k
